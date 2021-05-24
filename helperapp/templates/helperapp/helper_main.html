@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta charset="UTF-8">
+        <title>QAHelper</title>
+        <link rel="stylesheet" href="{% static 'css/helper_main.css'%}">
+        <link rel="stylesheet" href="{% static 'css/helper_style.css'%}">
+        <link rel="stylesheet" href="{% static 'css/helper_filter.css'%}">
+        <link rel="stylesheet" href="{% static 'css/helper_studio.css'%}">
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    </head>
+    <body>
+        <div class="pageTitle">
+            SODA/Tianyan QAHelper
+        </div>
+        <div class="schemeContainer">
+            <div class="appSelectTitle">Select App</div>
+            <div class="appIconContainer">
+                <div class="sodaRealAppIconRow">
+                    <input type="image" src="{% static 'image/sodaIconReal.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+                <div class="sodaBetaAppIconRow">
+                    <input type="image" src="{% static 'image/sodaIconBeta.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+                <div class="tianyanRealAppIconRow">
+                    <input type="image" src="{% static 'image/tianyanIconReal.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+                <div class="tianyanBetaAppIconRow">
+                    <input type="image" src="{% static 'image/tianyanIconBeta.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+            </div>
+            <div class="schemeTitle">Scheme</div>
+            <div class="schemeItemContainer">
+                <div class="schemeStyleBtnRow">
+                    <button type="button" class="btnSetting">
+                        <a href="./helper_style.html"><img src="{% static 'image/styleIcon.png' %}" width="100px" height="100px"></a>
+                    </button>
+                </div>
+                <div class="schemeFilterBtnRow">
+                    <button type="button" class="btnSetting">
+                        <a href="./helper_filter.html"><img src="{% static 'image/filterIcon.png' %}" width="100px" height="100px"></a>
+                    </button>
+                </div>
+                <div class="schemeStudioBtnRow">
+                    <button type="button" class="btnSetting">
+                        <a href="./helper_studio.html"><img src="{% static 'image/studioIcon.png' %}" width="100px" height="100px"></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
