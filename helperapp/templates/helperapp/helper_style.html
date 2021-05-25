@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <meta http-equiv="Pragma" content="no-cache">
         <meta charset="UTF-8">
         <title>QAHelper</title>
-        <link rel="stylesheet" href="./helper_main.css">
-        <link rel="stylesheet" href="./helper_style.css">
-        <link rel="stylesheet" href="./helper_filter.css">
-        <link rel="stylesheet" href="./helper_studio.css">
+        <link rel="stylesheet" href="{% static 'css/helper_main.css'%}">
+<!--        <link rel="stylesheet" href="./css/helper_main.css">-->
+        <link rel="stylesheet" href="{% static 'css/helper_style.css'%}">
+        <link rel="stylesheet" href="{% static 'css/helper_filter.css'%}">
+        <link rel="stylesheet" href="{% static 'css/helper_studio.css'%}">
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
     </head>
@@ -33,28 +36,28 @@
             </div>
             <div class="showQrcodeColumn">
                 <!-- QR Code 들어오는 자리 -->
-                <img src="./qr_ex.png" width="200px" height="200px">
+                <img src="{% static 'image/qr_ex.png' %}" width="200px" height="200px">
             </div>
             <hr size="2" width="100%" color="black">
             <div class="schemeListContainer">
                 <div class="schemeAutoDlBtnRow">
                     <button type="button" class="btnSetting">
-                        <img src="./autoDlBtn.png" width="100px" height="100px" />
+                        <img src="{% static 'image/autoDlBtn.png' %}" width="100px" height="100px" />
                     </button>
                 </div>
                 <div class="schemeManualDlBtnRow">
                     <button type="button" class="btnSetting">
-                        <img src="./manualDlBtn.png" width="100px" height="100px" />
+                        <img src="{% static 'image/manualDlBtn.png' %}" width="100px" height="100px" />
                     </button>
                 </div>
                 <div class="schemeInCameraBtnRow">
                     <button type="button" class="btnSetting">
-                        <img src="./inCameraBtn.png" width="100px" height="100px" />
+                        <img src="{% static 'image/inCameraBtn.png' %}" width="100px" height="100px" />
                     </button>
                 </div>
                 <div class="schemeOutCameraBtnRow">
                    <button type="button" class="btnSetting">
-                       <img src="./outCameraBtn.png" width="100px" height="100px" />
+                       <img src="{% static 'image/outCameraBtn.png' %}" width="100px" height="100px" />
                    </button> 
                 </div>
             </div>
