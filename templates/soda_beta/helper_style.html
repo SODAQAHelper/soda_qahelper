@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/scheme/helper_style.css' %}">
+    <script src="{% static 'js/scheme/helper_style.js' %}"></script>
+    <div class="pageTitle">
+        SODA/Tianyan QAHelper
+    </div>
+    <div class="mainContainer">
+        <div class="mainTitle">
+            Style
+        </div>
+        <div class="showSchemeContainer">
+            <div class="showSchemeRow">
+                <input type="text" size="150px" id="scheme_input"/>
+                현재 스킴 실시간 보여주는 영역
+            </div>
+            <div class="qrcodeRow">
+                <button type="button">
+                    QR Code
+                </button>
+            </div>
+        </div>
+        <div class="showQrcodeColumn">
+            <!-- QR Code 들어오는 자리 -->
+            <img src="./qr_ex.png" width="200px" height="200px">
+        </div>
+        <hr size="2" width="100%" color="black">
+        <div class="schemeListContainer">
+            <div class="schemeAutoDlBtnRow">
+                <button type="button" class="btnSetting1" auto="true">
+                    <img src="{% static 'images/main/autoDlBtn.png' %}" width="100px" height="100px"/>
+                </button>
+            </div>
+            <div class="schemeManualDlBtnRow">
+                <button type="button" class="btnSetting1" auto="false">
+                    <img src="{% static 'images/main/manualDlBtn.png' %}" width="100px" height="100px"/>
+                </button>
+            </div>
+            <div class="schemeInCameraBtnRow">
+                <button type="button" class="btnSetting2" position="0">
+                    <img src="{% static 'images/main/inCameraBtn.png' %}" width="100px" height="100px"/>
+                </button>
+            </div>
+            <div class="schemeOutCameraBtnRow">
+                <button type="button" class="btnSetting2" position="1">
+                    <img src="{% static 'images/main/outCameraBtn.png' %}" width="100px" height="100px"/>
+                </button>
+            </div>
+        </div>
+        <hr size="2" width="100%" color="black">
+        <div class="insertIdContainer">
+            <div class="insertIdRow">
+                <input type="text" size="20px"/>
+                Style Id 입력 부분
+            </div>
+        </div>
+        <div class="content-main">
+            <div class="contentsListContainer">
+                <div class="categoryNameColumn">
+                    카테고리 이름 노출 영역
+                </div>
+
+
+                <div class="showContentsContainer-div">
+                    <div class="showContentsContainer">
+                        <div class="contentsIdColumn">
+                            <컨텐츠 ID 노출 영역>
+                        </div>
+                        <div class="contentsThumbnailColumn">
+                            컨텐츠 썸네일 노출 영역
+                        </div>
+                        <div class="contentsNameColumn">
+                            <컨텐츠 이름 노출 영역>
+                        </div>
+                    </div>
+                    <div class="showContentsContainer">
+                        <div class="contentsIdColumn">
+                            <컨텐츠 ID 노출 영역>
+                        </div>
+                        <div class="contentsThumbnailColumn">
+                            컨텐츠 썸네일 노출 영역
+                        </div>
+                        <div class="contentsNameColumn">
+                            <컨텐츠 이름 노출 영역>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            console.log('tt');
+            styleArgs.mainUrl = '{{ app }}' + '://go?';
+            set_main_url();
+        })
+    </script>
+{% endblock %}

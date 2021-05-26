@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/soda_beta.css' %}">
+
+    <div class="title">Soda</div>
+    <div class="soda-menus">
+        <div class="soda-menu"><a href="{% url 'soda_beta:qa_helper' type='soda' %}">SCHEME</a></div>
+        <div class="soda-menu">Style</div>
+    </div>
+
+    <div class="title">SodaBeta</div>
+    <div class="soda-menus">
+        <div class="soda-menu"><a>SCHEME</a></div>
+        <div class="soda-menu">Style</div>
+    </div>
+    <div class="title">Tianyan</div>
+    <div class="soda-menus">
+        <div class="soda-menu"><a>SCHEME</a></div>
+        <div class="soda-menu">Style</div>
+    </div>
+    <div class="title">TianyanBeta</div>
+    <div class="soda-menus">
+        <div class="soda-menu"><a>SCHEME</a></div>
+        <div class="soda-menu">Style</div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+    <link rel="stylesheet" href="{% static 'css/soda_qahelper.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <style>
+        .items {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: skyblue;
+            width: 100%;
+            height: 300px;
+            margin-top: 30px;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        nav .links {
+            width: 100px;
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            font-weight: 700;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" charset="UTF-8"
+          href="https://translate.googleapis.com/translate_static/css/translateelement.css">
+
+    <script src="{% static 'js/soda_qahelper.js' %}"></script>
+    <script src="{% static 'js/jquery.qrcode.min.js' %}"></script>
+    {% if type == 'soda' %}
+        <h1>SODA REAL QAHelper</h1>
+    {% elif type == 'sodab' %}
+        <h1>SODA BETA QAHelper</h1>
+    {% elif type == 'tianyan' %}
+        <h1>TIANYAN REAL QAHelper</h1>
+    {% elif type == 'tianyanb' %}
+        <h1>TIANYAN BETA QAHelper</h1>
+
+    {% endif %}
+    <nav>
+        <div class="links" id="link1">Beauty</div>
+        <div class="links" id="link2">Style</div>
+        <div class="links" id="link3">Filter</div>
+        <div class="links" id="link4">Makeup</div>
+        <div class="links" id="link5">Studio</div>
+    </nav>
+    <style>
+        .apps {
+            margin: 1rem;
+            padding: 2rem;
+            border-radius: 10px;
+            background: #5ba3e0;
+            cursor: pointer;
+        }
+
+    </style>
+    <div style="margin-top: 1rem; display: inline-flex">
+        <div class="apps">soda</div>
+        <div class="apps">sodab</div>
+        <div class="apps">tianyan</div>
+        <div class="apps">tianyanb</div>
+
+    </div>
+    <br>
+    <br>
+    <select id="beauty_key">
+        <optgroup label="Select Keyname"></optgroup>
+        <!--        <option label="Select Keyname"></option>-->
+        <!--        <option disabled>Select Keyname</option>-->
+        <option value="smooth" selected>smooth</option>
+        <option value="lift">lift</option>
+        <option value="slim">slim</option>
+        <option value="short">short</option>
+        <option value="chin">chin</option>
+        <option value="wrinkle">wrinkle</option>
+        <option value="brow">brow</option>
+        <option value="clarity">clarity</option>
+        <option value="enlarge">enlarge</option>
+        <option value="span">span</option>
+        <option value="corner">corner</option>
+        <option value="eyebag">eyebag</option>
+        <option value="narrow">narrow</option>
+        <option value="alar">alar</option>
+        <option value="noselength">noselength</option>
+        <option value="mouth">mouth</option>
+        <option value="lip">lip</option>
+        <option value="plim">plim</option>
+        <option value="teeth">teeth</option>
+        <option value="eyelength">eyelength</option>
+        <option value="toneup">toneup</option>
+        <option value="cheekbone">cheekbone</option>
+        <option value="jawbone">jawbone</option>
+        <option value="pupil">pupil</option>
+        <option value="thick">thick</option>
+        <option value="eyebrowlift">eyebrowlift</option>
+        <option value="nose">nose</option>
+        <option value="tip">tip</option>
+        <option value="philtrum">philtrum</option>
+        <option value="vshape">vshape</option>
+        <option value="smile">smile</option>
+        <option value="balance">balance</option>
+        <option value="head">head</option>
+        <option value="inner">inner</option>
+    </select>
+
+    <label>Normal</label><input type="checkbox" name="beauty_take_mode" class="beauty_take_mode_normal">
+    <label>Video</label><input type="checkbox" name="beauty_take_mode" class="beauty_take_mode_video">
+    <label>In</label><input type="checkbox" name="beauty_camera_position" class="beauty_camera_position_in">
+    <label>Out</label><input type="checkbox" name="beauty_camera_position" class="beauty_camera_position_out">
+    <button type="button" onclick="window_open('go','beautyKeyname',$('#beauty_key'))"> GO</button>
+    <details>
+        <summary>Key name Info</summary>
+        <p>smooth : 매끈하게 / Skin / 肌</p>
+        <p>lift : 브이라인 / Sculpt / シャープ</p>
+        <p>slim : 슬림하게 / Slim / スリム</p>
+        <p>short : 얼굴 짧게 / Length / 長さ</p>
+        <p>chin : 턱 길이 / Chin / あご</p>
+        <p>wrinkle : 팔자주름 / Wrinkles / ほうれい線</p>
+        <p>brow : 이마 / Forehead / おでこ</p>
+        <p>clarity : 눈 선명하게 / Clarity / キラ目</p>
+        <p>enlarge : 눈 크게 / Enlarge / 大きく</p>
+        <p>span : 눈 간격 / Span / 目の間隔</p>
+        <p>corner : 눈 각도 / Corner / 目尻</p>
+        <p>eyebag : 다크서클 / Circles / くま</p>
+        <p>narrow : 코 좁게 / Narrow / 鼻筋</p>
+        <p>alar : 콧볼 작게 / Alar / 小鼻</p>
+        <p>noselength : 코 길이 / Length / 長さ</p>
+        <p>mouth : 입 크기 / Mouth / 口</p>
+        <p>lip : 입술 / Lip / 唇</p>
+        <p>plim : 애교살 / Plim / 涙袋</p>
+        <p>teeth : 치아미백 / Whitening / 美白</p>
+        <p>eyelength : 눈 뒤트임 / Length / 切れ長</p>
+        <p>toneup : 톤업 / Brighten / トーン</p>
+        <p>cheekbone : 광대뼈 줄이기 / Cheekbones / 頬</p>
+        <p>jawbone : 턱뼈 줄이기 / Jaw / エラ</p>
+        <p>pupil : 눈동자 크게 / Pupils / 瞳</p>
+        <p>thick : 눈썹 두께 / Thickness / 太さ</p>
+        <p>eyebrowlift : 눈썹 / Lift / 位置</p>
+        <p>nose : 코 크기 / Nose / 大きさ</p>
+        <p>tip : 코 끝 / Nose tip / 鼻先</p>
+        <p>philtrum : 인중 / Philtrum / 人中</p>
+        <p>vshape : 뾰족한 턱 / Sharp / シャープ</p>
+        <p>smile : 입꼬리 / Smile / スマイル</p>
+        <p>balance : 모공 / Pore / 毛穴</p>
+        <p>head : 얼굴 작게 / Head / 小顔</p>
+        <p>inner : 눈 앞트임 / Inner / 目頭</p>
+    </details>
+    <div class="beauty_pre">url</div>
+
+    <div class="items" id="item1" onclick="window.open('soda://go?beautyKeyname=enlarge')"> Beauty Scheme</div>
+    <br>
+    <input type="text" placeholder="Insert Style ID" id="id_styleid">
+    <input type="radio" name="check_style_dl" value="Auto DL ON"> Auto DL ON
+    <input type="radio" name="check_style_dl" value="Auto DL OFF"> Auto DL OFF
+    <button type="button" onclick="window_open('go','styleId',$('#id_styleid'))"> GO</button>
+    <div class="items" id="item2" onclick="window.open('soda://go?styleId=101255&amp;autoDownload=true')"> Style Scheme
+    </div>
+    <br>
+    <input type="text" placeholder="Insert Filter ID" id="id_filterid">
+    <input type="radio" name="check_filter_dl" value="Auto DL ON"> Auto DL ON
+    <input type="radio" name="check_filter_dl" value="Auto DL OFF"> Auto DL OFF
+    <button type="button" onclick="window_open('go','filterId', $('#id_filterid'))"> GO</button>
+    <div class="items" id="item3" onclick="window.open('soda://go?filterId=300245')"> Filter Scheme</div>
+    <br>
+    <select id="id_makeup_key">
+        <optgroup label="Select Keyname"></optgroup>
+        <option value="contour">Contour</option>
+        <option value="blush">Blush</option>
+        <option value="lip_color">Lip Color</option>
+        <option value="eye_color">Eye Color</option>
+        <option value="eyebrows">Eyebrows</option>
+        <option value="eye_shadow">Eye Shadow</option>
+        <option value="eye_liner">Eye Liner</option>
+        <option value="eyelashes">Eyelashes</option>
+    </select>
+    <input type="text" placeholder="Insert ID" id="id_makeupId">
+    <input type="text" placeholder="Insert Strength (0~100)" id="id_makeup_strength">
+    <button type="button" onclick="add_makeup_attr($('#id_makeup_key'),$('#id_makeupId'),
+$('#id_makeup_strength'))">+
+    </button>
+    <button type="button" onclick="makeup_open()">
+        GO
+    </button>
+    <button type="button" onclick="makeup_op_open()">
+        GO_OPEN
+    </button>
+    <div id="id_makeup_attrs">
+
+    </div>
+    <div class="items" id="item4"
+         onclick="window.open('soda://go?makeup=lip_color(0101,80)&amp;blush(0103,20)&amp;contour(0102,50)&amp;eye_color(0108,100)')">
+        Makeup Scheme
+    </div>
+    <br>
+    <input type="text" placeholder="Insert Studio Template ID" id="id_templateid">
+    <button type="button" onclick="window_open('studio','templateId',$('#id_templateid'))"> GO</button>
+    <div class="items" id="item5" onclick="window.open('soda://studio?templateId=10760')"> Studio Scheme</div>
+    <!--    <input type = "button" value="url" name="test" onclick="location.href='soda://go?styleId=101255&autoDownload=true'">-->
+    <!--    <input type="button" value="album" name="test" onclick="window.open('soda://go?styleId=101255&autoDownload=true')">-->
+    <!--위가 현재 페이지에서 이동, 아래가 새 에서 이동 >> 현재 페이지에서 이동은 스킴 정상적으로 이동 안됨, 새 창으로 열어야 스킴 이 -->
+
+    <div id="dialog" title="">
+        <div id="modal_url"></div>
+        <div id="qrcode"></div>
+    </div>
+
+
+
+    <script>
+        $('#link2').on('click', function () {
+            $('html').animate({
+                scrollTop: $("#item2").offset().top,
+            }, 800);
+        })
+    </script>
+
+    <script>
+        $('#link3').on('click', function () {
+            $('html').animate({
+                scrollTop: $("#item3").offset().top,
+            }, 800);
+        })
+    </script>
+
+    <script>
+        $('#link4').on('click', function () {
+            $('html').animate({
+                scrollTop: $("#item4").offset().top,
+            }, 800);
+        })
+    </script>
+
+    <script>
+        $('#link5').on('click', function () {
+            $('html').animate({
+                scrollTop: $("#item5").offset().top,
+            }, 800);
+        })
+    </script>
+
+    <script>
+
+    </script>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $("#modal_url").on('click', function () {
+                const url = $(this).text()
+                console.log(url);
+                window.open(url);
+            })
+            // parameter가 다 함수이다. (callback) 함수 자체가 파라미터니까, 넘겨주는 함수 자체를 여기서 선언한다.
+            //text를 얻고, 눌렀을 때 이동한다.
+
+            {% if type == 'soda' %}
+
+            {% elif type == 'sodab' %}
+                sodaDomain['go'] = 'sodab://go';
+                sodaDomain['studio'] = 'sodab://studio';
+            {% elif type == 'tianyan' %}
+                sodaDomain['go'] = 'tianyan://go';
+                sodaDomain['studio'] = 'tianyan://studio';
+            {% elif type == 'tianyanb' %}
+                sodaDomain['go'] = 'tianyanb://go';
+                sodaDomain['studio'] = 'tianyanb://studio';
+
+            {% endif %}
+        });
+    </script>
+{% endblock %}
+
+

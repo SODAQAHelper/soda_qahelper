@@ -1,0 +1,26 @@
+{
+  "name": "soda",
+  "version": "1.0.0",
+  "description": "soda project",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liye-yoo/soda_myadmin.git"
+  },
+  "author": "soda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liye-yoo/soda_myadmin/issues"
+  },
+  "homepage": "https://github.com/Liye-yoo/soda_myadmin#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.11",
+    "gulp": "4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-sass": "^4.1.0"
+  }
+}
