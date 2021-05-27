@@ -25,7 +25,7 @@
     border-radius: 10px;
 }
 
-.showSchemeRow, .qrcodeRow, .insertIdRow {
+.showSchemeRow, .qrcodeRow, .insertIdRow, .addIdRow {
     display: flex;
     padding: 10px;
     margin-right: 10px;
