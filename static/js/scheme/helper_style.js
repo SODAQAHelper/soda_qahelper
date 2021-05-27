@@ -40,6 +40,15 @@ $(function () {
 
     });
     call_style_api();
+
+
+    $("#style_input").keyup(function () {
+        console.log('click');
+        styleArgs.paras.styleId = $(this).val();
+        set_main_url();
+    });
+
+
 });
 
 function call_style_api() {
@@ -52,19 +61,66 @@ function call_style_api() {
             for (var i = 0; i < result.result.groups.length; i++) {
                 const gid = result.result.groups[i].id;
                 const gname = result.result.groups[i].name;
+                let sub_html = ''
+                for (var j = 0; j < result.result.groups[i].styleIds.length; j++) {
+                    for (var k = 0; k < result.result.styles.length; k++) {
+                        if (result.result.groups[i].styleIds[j] === result.result.styles[k].id) {
+                            const style_id = result.result.styles[k].id;
+                            const style_name = result.result.styles[k].name;
+                            const style_thumb = result.result.cdnPrefix + result.result.styles[k].thumbnail;
+                            sub_html += `<div class="style_block"><div>${style_id}</div>
+<img src="${style_thumb}"></img>                        
+<div>${style_name}</div>
+</div>`;
+                        }
+                    }
+                }
+
+
                 const html = `
             <div className="contentsListContainer">
                 <div className="categoryNameColumn">
                     ${gid}, ${gname}
+                  
                 </div>
+                  <div class="style_group">
+                    ${sub_html}
+                    </div>
             </div>`
                 $(".content-main").append(html);
             }
+
+            $(".style_block").click(function () {
+                if ($(this).hasClass('clicked')) {
+                    $(this).removeClass('clicked');
+                    styleArgs.paras.styleId = ''
+
+                } else {
+
+                    $(".style_block").removeClass('clicked');
+                    $(this).addClass('clicked');
+                    var a = $(this).find('div')[0];
+                    styleArgs.paras.styleId = $(a).text()
+                }
+                set_main_url()
+            });
         },
         error: function (e) {
             console.error(e);
         }
     })
+}
+
+let qr_code = ''
+
+function make_qr_code() {
+    $("#qrcode").empty();
+    $('#qrcode').qrcode({
+        width: 200,
+        height: 200,
+        text: styleArgs.mainUrl
+    });
+
 }
 
 function set_main_url() {
