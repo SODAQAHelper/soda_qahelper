@@ -89,3 +89,19 @@
     background-color: wheat;
 }
 
+.style_group {
+    display: inline-flex;
+    margin: 1rem 0;
+}
+
+.style_block {
+    display: block;
+    margin: 0 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.style_block img {
+    width: 5rem;
+    height: 5rem;
+}

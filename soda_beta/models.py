@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class Information(models.Model):
     name = models.CharField(max_length=20, null=True, blank=True)
@@ -8,17 +7,14 @@ class Information(models.Model):
     class Meta:
         db_table = 'global_information'
 
-
 class Makeup(models.Model):
     builtin_id = models.IntegerField(null=True, blank=True)
     type = models.CharField(max_length=10, null=False, blank=False)
     makeup_name = models.CharField(max_length=255, null=False, blank=False)
     name = models.CharField(max_length=255, null=False, blank=False)
     sub_name = models.TextField(null=True, blank=True)
-
     class Meta:
         db_table = 'makeup'
-
 
 """
 builtin_id           int          null,
