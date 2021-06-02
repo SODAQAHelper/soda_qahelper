@@ -3,9 +3,9 @@
 {% block main %}
 
     <link rel="stylesheet" href="{% static 'css/soda_qahelper.css' %}">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <style>
         .items {
@@ -39,7 +39,7 @@
           href="https://translate.googleapis.com/translate_static/css/translateelement.css">
 
     <script src="{% static 'js/soda_qahelper.js' %}"></script>
-    <script src="{% static 'js/jquery.qrcode.min.js' %}"></script>
+     <script src="{% static 'js/jquery.qrcode.min.js' %}"></script>
     {% if type == 'soda' %}
         <h1>SODA REAL QAHelper</h1>
     {% elif type == 'sodab' %}
@@ -58,20 +58,21 @@
         <div class="links" id="link5">Studio</div>
     </nav>
     <style>
-        .apps {
-            margin: 1rem;
-            padding: 2rem;
-            border-radius: 10px;
-            background: #5ba3e0;
-            cursor: pointer;
-        }
+    .apps
+    {
+        margin: 1rem;
+        padding: 2rem;
+        border-radius: 10px;
+        background: #5ba3e0;
+        cursor: pointer;
+    }
 
     </style>
     <div style="margin-top: 1rem; display: inline-flex">
-        <div class="apps">soda</div>
-        <div class="apps">sodab</div>
-        <div class="apps">tianyan</div>
-        <div class="apps">tianyanb</div>
+    <div class="apps">soda</div>
+    <div class="apps">sodab</div>
+    <div class="apps">tianyan</div>
+    <div class="apps">tianyanb</div>
 
     </div>
     <br>
@@ -118,7 +119,7 @@
 
     <label>Normal</label><input type="checkbox" name="beauty_take_mode" class="beauty_take_mode_normal">
     <label>Video</label><input type="checkbox" name="beauty_take_mode" class="beauty_take_mode_video">
-    <label>In</label><input type="checkbox" name="beauty_camera_position" class="beauty_camera_position_in">
+     <label>In</label><input type="checkbox" name="beauty_camera_position" class="beauty_camera_position_in">
     <label>Out</label><input type="checkbox" name="beauty_camera_position" class="beauty_camera_position_out">
     <button type="button" onclick="window_open('go','beautyKeyname',$('#beauty_key'))"> GO</button>
     <details>
@@ -194,7 +195,7 @@ $('#id_makeup_strength'))">+
     <button type="button" onclick="makeup_open()">
         GO
     </button>
-    <button type="button" onclick="makeup_op_open()">
+     <button type="button" onclick="makeup_op_open()">
         GO_OPEN
     </button>
     <div id="id_makeup_attrs">
@@ -212,9 +213,9 @@ $('#id_makeup_strength'))">+
     <!--    <input type="button" value="album" name="test" onclick="window.open('soda://go?styleId=101255&autoDownload=true')">-->
     <!--위가 현재 페이지에서 이동, 아래가 새 에서 이동 >> 현재 페이지에서 이동은 스킴 정상적으로 이동 안됨, 새 창으로 열어야 스킴 이 -->
 
-    <div id="dialog" title="">
+     <div id="dialog" title="">
         <div id="modal_url"></div>
-        <div id="qrcode"></div>
+     <div id="qrcode"></div>
     </div>
 
 
@@ -261,13 +262,13 @@ $('#id_makeup_strength'))">+
     <script>
         $(document).ready(function () {
 
-            $("#modal_url").on('click', function () {
+            $("#modal_url").on('click', function (){
                 const url = $(this).text()
                 console.log(url);
                 window.open(url);
             })
-            // parameter가 다 함수이다. (callback) 함수 자체가 파라미터니까, 넘겨주는 함수 자체를 여기서 선언한다.
-            //text를 얻고, 눌렀을 때 이동한다.
+        // parameter가 다 함수이다. (callback) 함수 자체가 파라미터니까, 넘겨주는 함수 자체를 여기서 선언한다.
+        //text를 얻고, 눌렀을 때 이동한다.
 
             {% if type == 'soda' %}
 

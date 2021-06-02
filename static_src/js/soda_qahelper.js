@@ -20,8 +20,8 @@ function insert_args(k, v) {
 
     beautyArgs[k] = v
 }
-
-function delete_args(k) {
+function delete_args(k)
+{
     delete beautyArgs[k];
 }
 
@@ -148,7 +148,7 @@ $(function () {
         if ($(this).is(':checked')) {
 
             $(".beauty_take_mode_video").prop('checked', false)
-            insert_args("takemode", "1")
+            insert_args("takemode","1")
 
         } else {
             delete_args("takemode");
@@ -163,23 +163,23 @@ $(function () {
         if ($(this).is(':checked')) {
 
             $(".beauty_take_mode_normal").prop('checked', false)
-            insert_args("takemode", "2");
+            insert_args("takemode","2");
 
         } else {
 
-            delete_args("takemode");
+             delete_args("takemode");
 
         }
         generate_url('go');
     })
     // [{me:'beauty_camera_position_in', you:'beauty_camera_position_in', k:'', v:'', theme:''},{}]
 
-    $(".beauty_camera_position_in").on('click', function () {
+     $(".beauty_camera_position_in").on('click', function () {
 
         if ($(this).is(':checked')) {
 
             $(".beauty_camera_position_out").prop('checked', false)
-            insert_args("cameraPosition", "0")
+            insert_args("cameraPosition","0")
 
         } else {
             delete_args("cameraPosition");
@@ -193,7 +193,7 @@ $(function () {
         if ($(this).is(':checked')) {
 
             $(".beauty_camera_position_in").prop('checked', false)
-            insert_args("cameraPosition", "1")
+            insert_args("cameraPosition","1")
         } else {
 
             delete_args("cameraPosition");

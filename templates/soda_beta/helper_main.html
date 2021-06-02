@@ -1,3 +1,4 @@
+
 {# 반복되는 html 태그를 base.html에 작성한 뒤에 다른 html문서에서 상속받는 방법으로 반복되는 코드를 줄일 수 있다.#}
 {% extends 'base.html' %}
 {# 정적파일 분석하기 #}
@@ -6,60 +7,53 @@
 {% block main %}
 
 
-    <link rel="stylesheet" href="{% static 'css/main/helper_main.css' %}">
+     <link rel="stylesheet" href="{% static 'css/main/helper_main.css' %}">
 
-    <link rel="stylesheet" href="{% static 'css/helper_filter.css' %}">
-    <link rel="stylesheet" href="{% static 'css/helper_studio.css' %}">
-    <script src="{% static 'js/main/helper_main.js' %}"></script>
+     <link rel="stylesheet" href="{% static 'css/helper_filter.css' %}">
+     <link rel="stylesheet" href="{% static 'css/helper_studio.css' %}">
+<script src="{% static 'js/main/helper_main.js' %}"></script>
 
 
 
-    <div class="pageTitle">
-        SODA/Tianyan QAHelper
-    </div>
-    <div class="schemeContainer">
-        <div class="appSelectTitle">Select App</div>
-        <div class="appIconContainer">
-            <div class="sodaRealAppIconRow">
-                <input data-app="soda" type="image" src="{% static 'images/main/sodaIconReal.png' %}" width="100px"
-                       height="100px" class="iconRound"/>
+        <div class="pageTitle">
+            SODA/Tianyan QAHelper
+        </div>
+        <div class="schemeContainer">
+            <div class="appSelectTitle">Select App</div>
+            <div class="appIconContainer">
+                <div class="sodaRealAppIconRow">
+                    <input data-app="soda" type="image" src="{% static 'images/main/sodaIconReal.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+                <div class="sodaBetaAppIconRow">
+                    <input data-app="sodab" type="image" src="{% static 'images/main/sodaIconBeta.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+                <div class="tianyanRealAppIconRow">
+                    <input data-app="tianyan" type="image" src="{% static 'images/main/tianyanIconReal.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
+                <div class="tianyanBetaAppIconRow">
+                    <input data-app="tianyanb" type="image" src="{% static 'images/main/tianyanIconBeta.png' %}" width="100px" height="100px" class="iconRound" />
+                </div>
             </div>
-            <div class="sodaBetaAppIconRow">
-                <input data-app="sodab" type="image" src="{% static 'images/main/sodaIconBeta.png' %}" width="100px"
-                       height="100px" class="iconRound"/>
-            </div>
-            <div class="tianyanRealAppIconRow">
-                <input data-app="tianyan" type="image" src="{% static 'images/main/tianyanIconReal.png' %}"
-                       width="100px" height="100px" class="iconRound"/>
-            </div>
-            <div class="tianyanBetaAppIconRow">
-                <input data-app="tianyanb" type="image" src="{% static 'images/main/tianyanIconBeta.png' %}"
-                       width="100px" height="100px" class="iconRound"/>
+            <div class="schemeTitle">Scheme</div>
+            <div class="schemeItemContainer">
+                <div class="schemeStyleBtnRow">
+                    <button type="button" class="btnSetting">
+                        <a href="javascript:void(0)" onclick="click_scheme('style')"><img src="{% static 'images/main/styleIcon.png' %}" width="100px" height="100px"></a>
+                    </button>
+                </div>
+                <div class="schemeFilterBtnRow">
+                    <button type="button" class="btnSetting">
+                        <!--<a href="./helper_filter.html"><img src="{% static 'images/main/filterIcon.png' %}" width="100px" height="100px"></a> -->
+                        <a href="javascript:void(0)" onclick="click_scheme('filter')"><img src="{% static 'images/main/filterIcon.png' %}" width="100px" height="100px"></a>
+                    </button>
+                </div>
+                <div class="schemeStudioBtnRow">
+                    <button type="button" class="btnSetting">
+                        <a href="./helper_studio.html"><img src="{% static 'images/main/studioIcon.png' %}" width="100px" height="100px"></a>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="schemeTitle">Scheme</div>
-        <div class="schemeItemContainer">
-            <div class="schemeStyleBtnRow">
-                <button type="button" class="btnSetting">
-                    <a href="javascript:void(0)" onclick="click_scheme('style')"><img
-                            src="{% static 'images/main/styleIcon.png' %}" width="100px" height="100px"></a>
-                </button>
-            </div>
-            <div class="schemeFilterBtnRow">
-                <button type="button" class="btnSetting">
-                    <!--<a href="./helper_filter.html"><img src="{% static 'images/main/filterIcon.png' %}" width="100px" height="100px"></a> -->
-                    <a href="javascript:void(0)" onclick="click_scheme('filter')"><img
-                            src="{% static 'images/main/filterIcon.png' %}" width="100px" height="100px"></a>
-                </button>
-            </div>
-            <div class="schemeStudioBtnRow">
-                <button type="button" class="btnSetting">
-                    <a href="./helper_studio.html"><img src="{% static 'images/main/studioIcon.png' %}" width="100px"
-                                                        height="100px"></a>
-                </button>
-            </div>
-        </div>
-    </div>
 
     <script>
 

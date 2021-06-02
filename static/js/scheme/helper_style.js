@@ -1,139 +1,92 @@
 /* button setting을 1, 2로 나누었고 분기처리한다. 나중에 이름 헷갈리면 바꿀 것, */
 
 const styleArgs = {
-    mainUrl: '',
-    paras: {styleId: '', autoDownload: '', cameraPosition: ''}
+    mainUrl : '',
+    paras : {styleId:'', autoDownload:'', cameraPosition: ''}
 }
 // main url하고 parameter를 따로 줘야되지 않나 싶어서,
 
 
 const schemeOption = {}
-$(function () {
-    $("button.btnSetting1").on('click', function () {
-        if ($(this).hasClass('clicked')) {
-            $(this).removeClass('clicked');
-            styleArgs.paras.autoDownload = ''
+$(function (){
+    $("button.btnSetting1").on('click', function(){
+    if ($(this).hasClass('clicked'))
+    {
+        $(this).removeClass('clicked');
+        styleArgs.paras.autoDownload = ''
 
-        } else {
-            $("button.btnSetting1").removeClass('clicked');
-            $(this).addClass('clicked');
-            const auto = $(this).attr('auto') // auto라는 요소를 가져온다.
-            styleArgs.paras.autoDownload = auto // auto가 true인지 false인지 체크한다.
-        }
-        set_main_url()
-
-    });
-    $("button.btnSetting2").on('click', function () {
-        if ($(this).hasClass('clicked')) {
-            $(this).removeClass('clicked');
-            styleArgs.paras.cameraPosition = '';
-        } else {
-            $("button.btnSetting2").removeClass('clicked');
-            $(this).addClass('clicked');
-            const pos = $(this).attr('position')
-            console.log(pos);
-            styleArgs.paras.cameraPosition = pos;
-
-        }
-        set_main_url();
-
+    }
+    else
+    {
+        $("button.btnSetting1").removeClass('clicked');
+        $(this).addClass('clicked');
+        const auto = $(this).attr('auto') // auto라는 요소를 가져온다.
+        styleArgs.paras.autoDownload = auto // auto가 true인지 false인지 체크한다.
+    }
+    set_main_url()
 
     });
-    call_style_api();
+     $("button.btnSetting2").on('click', function(){
+    if ($(this).hasClass('clicked'))
+    {
+        $(this).removeClass('clicked');
+        styleArgs.paras.cameraPosition = '';
+    }
+    else
+    {
+        $("button.btnSetting2").removeClass('clicked');
+        $(this).addClass('clicked');
+        const pos = $(this).attr('position')
+        console.log(pos);
+        styleArgs.paras.cameraPosition = pos;
 
-
-    $("#style_input").keyup(function () {
-        console.log('click');
-        styleArgs.paras.styleId = $(this).val();
-        set_main_url();
-    });
+    }
+    set_main_url();
 
 
 });
+call_style_api();
+});
 
-function call_style_api() {
+function call_style_api()
+{
 
-    $.ajax({
-        url: "../ajax/api/style",
-        success: function (result) {
-            // DO SOMETHING
-            console.log(result.result);
-            for (var i = 0; i < result.result.groups.length; i++) {
-                const gid = result.result.groups[i].id;
-                const gname = result.result.groups[i].name;
-                let sub_html = ''
-                for (var j = 0; j < result.result.groups[i].styleIds.length; j++) {
-                    for (var k = 0; k < result.result.styles.length; k++) {
-                        if (result.result.groups[i].styleIds[j] === result.result.styles[k].id) {
-                            const style_id = result.result.styles[k].id;
-                            const style_name = result.result.styles[k].name;
-                            const style_thumb = result.result.cdnPrefix + result.result.styles[k].thumbnail;
-                            sub_html += `<div class="style_block"><div>${style_id}</div>
-<img src="${style_thumb}"></img>                        
-<div>${style_name}</div>
-</div>`;
-                        }
-                    }
-                }
-
-
-                const html = `
+$.ajax({
+    url: "../ajax/api/style",
+    success: function(result) {
+        // DO SOMETHING
+        console.log(result.result);
+        for (var i=0; i<result.result.groups.length; i++)
+        {
+            const gid = result.result.groups[i].id;
+            const gname = result.result.groups[i].name;
+            const html = `
             <div className="contentsListContainer">
                 <div className="categoryNameColumn">
                     ${gid}, ${gname}
-                  
                 </div>
-                  <div class="style_group">
-                    ${sub_html}
-                    </div>
             </div>`
-                $(".content-main").append(html);
-            }
-
-            $(".style_block").click(function () {
-                if ($(this).hasClass('clicked')) {
-                    $(this).removeClass('clicked');
-                    styleArgs.paras.styleId = ''
-
-                } else {
-
-                    $(".style_block").removeClass('clicked');
-                    $(this).addClass('clicked');
-                    var a = $(this).find('div')[0];
-                    styleArgs.paras.styleId = $(a).text()
-                }
-                set_main_url()
-            });
-        },
-        error: function (e) {
-            console.error(e);
+            $(".content-main").append(html);
         }
-    })
+    },
+    error: function(e) {
+        console.error(e);
+    }
+})
 }
-
-let qr_code = ''
-
-function make_qr_code() {
-    $("#qrcode").empty();
-    $('#qrcode').qrcode({
-        width: 200,
-        height: 200,
-        text: styleArgs.mainUrl
-    });
-
-}
-
-function set_main_url() {
+function set_main_url()
+{
     let main_url = styleArgs.mainUrl;
     let para = ''
-    $.each(styleArgs.paras, function (key, value) {
+     $.each(styleArgs.paras, function (key, value) {
 
-        if (value !== '') {
-            para += key + '=' + value + '&';
-        }
+         if (value !== '')
+         {
+                para += key + '=' + value + '&';
+         }
 
-    });
-    para = para.substring(0, para.length - 1);
+  });
+    para = para.substring(0, para.length-1);
     main_url += para;
     $("#scheme_input").val(main_url);
 }

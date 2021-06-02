@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-
 import pymysql
-
 pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -28,6 +27,7 @@ SECRET_KEY = '3mgy#@x3bfg(cig@4n585h_%ezwo$v6u#(i-_9j8asbs_=_cec'
 DEBUG = True
 
 ALLOWED_HOSTS = ["ec2-15-164-251-217.ap-northeast-2.compute.amazonaws.com", "127.0.0.1"]
+
 
 # Application definition
 
@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'soda.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -115,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -128,6 +130,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -138,9 +141,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')
 # server에서는 'www_dir'에다가 'static'을 넣겠다. 라고 따로 해줘야 한다.
-# settings.py에 다음과 같이 STATIC_ROOT 설정 항목을 추가한다. STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#settings.py에 다음과 같이 STATIC_ROOT 설정 항목을 추가한다. STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # static 자체는 그냥 가지고 있는건데 서버는 이것을 쓰지 못하고, 서버가 인식하는 곳을 분리를 해놓는다.
-# python3.7 manage.py collectstatic
+#python3.7 manage.py collectstatic
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
